@@ -46,7 +46,7 @@ ESP-Miner をそのまま利用する場合は単体でマイニングが可能�
 ### cgminer ドライバー実装
 - [x] ドライバー雛形 `driver-bitaxe.c` 作成
 - [x] `configure.ac` と `Makefile.am` 更新
-- [ ] 初期化・ハッシュ処理の実装
+- [x] 初期化・ハッシュ処理の実装
 - [x] `usbutils.c` へデバイス検出追加
 
 ### テスト
