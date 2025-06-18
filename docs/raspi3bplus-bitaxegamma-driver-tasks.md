@@ -53,7 +53,7 @@ ESP32 用 USB ブリッジの通信仕様は `raspi3bplus-bitaxegamma-protocol.m
 - [x] `usbutils.c` へデバイス検出追加
 
 ### テスト
-- [ ] Raspberry Pi でのビルド確認
+- [x] Raspberry Pi でのビルド確認
 - [ ] 実機接続テスト
 - [ ] 採掘テスト
 
