@@ -409,6 +409,18 @@ if test "x$dragonmint_t1" = xyes; then
 	standalone="yes"
 fi
 AM_CONDITIONAL([HAS_DRAGONMINT_T1], [test x$dragonmint_t1 = xyes])
+bitaxe="no"
+
+AC_ARG_ENABLE([bitaxe],
+        [AC_HELP_STRING([--enable-bitaxe],[Compile support for bitaxe Gamma ASICs (default disabled)])],
+        [bitaxe=$enableval]
+        )
+if test "x$bitaxe" = xyes; then
+        AC_DEFINE([USE_BITAXE], [1], [Defined to 1 if bitaxe Gamma support is wanted])
+        drivercount=x$drivercount
+fi
+AM_CONDITIONAL([HAS_BITAXE], [test x$bitaxe = xyes])
+
 
 
 drillbit="no"
@@ -582,7 +594,7 @@ fi
 
 
 #Add a new device to this list if it needs libusb, along with a no on the end.
-if test x$avalon$avalon2$avalon4$avalon7$avalon8$avalon_miner$bitforce$bitfury$blockerupter$modminer$bflsc$icarus$hashfast$hashratio$klondike$drillbit$cointerra$ants1$ants3 != xnonononononononononononononononononono; then
+if test x$avalon$avalon2$avalon4$avalon7$avalon8$avalon_miner$bitforce$bitfury$blockerupter$modminer$bflsc$icarus$hashfast$hashratio$klondike$drillbit$cointerra$ants1$ants3$bitaxe != xnononononononononononononononononononon; then
 	want_usbutils=true
 else
 	want_usbutils=false
@@ -935,6 +947,12 @@ if test "x$dragonmint_t1" = xyes; then
 else
 	echo "  Dragonmint.T1.ASICs..: Disabled"
 fi
+if test "x$bitaxe" = xyes; then
+        echo "  Bitaxe.Gamma.ASICs...: Enabled"
+else
+        echo "  Bitaxe.Gamma.ASICs...: Disabled"
+fi
+
 
 if test "x$drillbit" = xyes; then
 	echo "  Drillbit.BitFury.....: Enabled"
@@ -979,7 +997,7 @@ else
 fi
 
 #Add any new device to this, along with a no on the end of the test
-if test "x$avalon$avalon2$avalon4$avalon7$avalon8$avalon_miner$bab$bflsc$bitforce$bitfury$bitfury16$bitmain_soc$blockerupter$hashfast$hashratio$icarus$klondike$knc$modminer$drillbit$minion$cointerra$bitmine_A1$ants1$ants2$ants3$sp10$sp30$dragonmint_t1" = xnononononononononononononononononononononononononononono; then
+if test "x$avalon$avalon2$avalon4$avalon7$avalon8$avalon_miner$bab$bflsc$bitforce$bitfury$bitfury16$bitmain_soc$blockerupter$hashfast$hashratio$icarus$klondike$knc$modminer$drillbit$minion$cointerra$bitmine_A1$ants1$ants2$ants3$sp10$sp30$dragonmint_t1$bitaxe" = xnonononononononononononononononononononononononononononono; then
 	echo
 	AC_MSG_ERROR([No mining devices configured in])
 	echo
