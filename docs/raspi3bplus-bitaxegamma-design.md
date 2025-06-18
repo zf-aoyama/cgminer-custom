@@ -40,3 +40,15 @@
 ## 参考リンク
 - [bitaxeGamma リファレンス](../reference/bitaxeGamma/readme.md)
 - [ESP-Miner プロジェクト](../reference/ESP-Miner)
+
+## アーキテクチャ概要
+システムは以下の構成要素で実装します。
+- **cgminer 本体**: bitaxe ドライバを組み込んだマイニングエンジン。
+- **設定ファイル (cgminer.conf)**: マイニングプール情報やデバイス設定を保持。
+- **管理スクリプト**: cgminer の起動・停止、ログローテーションを行うシェルスクリプト。
+- **モニタリングツール**: cgminer の API 機能を用いてハッシュレートや温度を取得し、必要に応じて通知します。
+
+各コンポーネントは Raspberry Pi 上で動作し、USB 接続された bitaxe Gamma へコマンドを送信します。API を有効にすることで外部から状態を取得でき、複数台運用時の集中管理も容易になります。
+
+## cgminer からの直接制御について
+bitaxe Gamma は標準では ESP32 上で ESP-Miner が動作しており、Wi-Fi 経由で単体マイニングが可能です。USB ケーブルで Raspberry Pi に接続するだけでは cgminer から ASIC を制御できません。cgminer で利用する場合は専用ドライバーの実装と、USB ブリッジ用のファームウェアが必要となります。詳細は `raspi3bplus-bitaxegamma-driver-tasks.md` を参照してください。
