@@ -20,6 +20,7 @@
 3. **接続方法**
    - bitaxe Gamma の USB-C ポートを Raspberry Pi の USB ポートに接続
    - 必要に応じて USB-Hub を使用
+   - 基本は USB 接続を想定し、USB で制御できない場合のみ GPIO/SPI 接続を検討
 
 ## ソフトウェア構成
 1. **ビルド環境の準備**

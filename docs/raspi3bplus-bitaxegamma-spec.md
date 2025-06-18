@@ -1,6 +1,8 @@
 # Raspberry Pi 3B+ と bitaxe Gamma 連携ソフトウェア仕様書
 
 ## システム概要
+Raspberry Pi 3B+ 上でビルドした cgminer を用い、USB 接続された bitaxe Gamma を制御して Bitcoin マイニングを行います。
+基本は USB 接続を想定し、USB が利用できない場合のみ GPIO/SPI 接続を検討します。本書ではビルド手順、設定ファイル、起動方法など実装に必要な詳細仕様をまとめます。
 Raspberry Pi 3B+ 上でビルドした cgminer を用い、USB 接続された bitaxe Gamma を制御して Bitcoin マイニングを行います。本書ではビルド手順、設定ファイル、起動方法など実装に必要な詳細仕様をまとめます。
 
 ## ビルド手順
