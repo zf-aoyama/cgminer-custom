@@ -35,7 +35,7 @@ ESP-Miner をそのまま利用する場合は単体でマイニングが可能�
 ### 調査
 - [x] ハードウェア仕様の確認
 - [x] ESP-Miner コード参照
-- [ ] 既存 cgminer ドライバー分析
+ - [x] 既存 cgminer ドライバー分析
 
 ### USBインターフェースの検討
 - [x] USBブリッジ方式を第一候補として決定
@@ -43,8 +43,8 @@ ESP-Miner をそのまま利用する場合は単体でマイニングが可能�
 - [ ] GPIO/SPI 接続の予備調査
 
 ### cgminer ドライバー実装
-- [ ] ドライバー雛形 `driver-bitaxe.c` 作成
-- [ ] `configure.ac` と `Makefile.am` 更新
+ - [x] ドライバー雛形 `driver-bitaxe.c` 作成
+ - [x] `configure.ac` と `Makefile.am` 更新
 - [ ] 初期化・ハッシュ処理の実装
 - [ ] `usbutils.c` へデバイス検出追加
 
