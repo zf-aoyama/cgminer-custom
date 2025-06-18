@@ -40,8 +40,11 @@ ESP-Miner をそのまま利用する場合は単体でマイニングが可能�
 
 ### USBインターフェースの検討
 - [x] USBブリッジ方式を第一候補として決定
-- [ ] ESP32 側プロトコル設計
-- [ ] GPIO/SPI 接続の予備調査
+- [x] ESP32 側プロトコル設計
+- [x] GPIO/SPI 接続の予備調査
+
+ESP32 用 USB ブリッジの通信仕様は `raspi3bplus-bitaxegamma-protocol.md` に、SPI
+接続に関するメモは `raspi3bplus-bitaxegamma-spi-notes.md` にまとめた。
 
 ### cgminer ドライバー実装
 - [x] ドライバー雛形 `driver-bitaxe.c` 作成
