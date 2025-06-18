@@ -44,10 +44,10 @@ ESP-Miner をそのまま利用する場合は単体でマイニングが可能�
 - [ ] GPIO/SPI 接続の予備調査
 
 ### cgminer ドライバー実装
- - [x] ドライバー雛形 `driver-bitaxe.c` 作成
- - [x] `configure.ac` と `Makefile.am` 更新
+- [x] ドライバー雛形 `driver-bitaxe.c` 作成
+- [x] `configure.ac` と `Makefile.am` 更新
 - [ ] 初期化・ハッシュ処理の実装
-- [ ] `usbutils.c` へデバイス検出追加
+- [x] `usbutils.c` へデバイス検出追加
 
 ### テスト
 - [ ] Raspberry Pi でのビルド確認
@@ -57,4 +57,4 @@ ESP-Miner をそのまま利用する場合は単体でマイニングが可能�
 ### ドキュメント整備
 - [x] 設計書・仕様書・要件定義書作成
  - [x] ビルド手順と設定例の追記
-- [ ] ファームウェア書き込み手順作成
+- [x] ファームウェア書き込み手順作成
