@@ -31,6 +31,20 @@ irc://irc.freenode.net/cgminer
 
 SEE ALSO API-README, ASIC-README and FGPA-README FOR MORE INFORMATION ON EACH.
 
+## Repository Layout
+This fork includes firmware and docs for controlling bitaxe Gamma. See `docs/raspi3bplus-bitaxegamma-build.md` for details.
+
+```
+cgminer-custom
+├─ firmware
+│  ├─ esp-miner
+│  └─ usb-bridge
+├─ reference
+│  ├─ ESP-Miner
+│  └─ bitaxeGamma
+└─ docs
+```
+
 ---
 
 EXECUTIVE SUMMARY ON USAGE:
