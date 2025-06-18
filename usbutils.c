@@ -78,6 +78,7 @@ static cgtimer_t usb11_cgt;
 #define HASHFAST_TIMEOUT_MS 999
 #define HASHRATIO_TIMEOUT_MS 999
 #define BLOCKERUPTER_TIMEOUT_MS 999
+#define BITAXE_TIMEOUT_MS 999
 
 /* The safety timeout we use, cancelling async transfers on windows that fail
  * to timeout on their own. */
@@ -97,6 +98,7 @@ static cgtimer_t usb11_cgt;
 #define HASHFAST_TIMEOUT_MS 500
 #define HASHRATIO_TIMEOUT_MS 200
 #define BLOCKERUPTER_TIMEOUT_MS 300
+#define BITAXE_TIMEOUT_MS 200
 #endif
 
 #define USB_EPS(_intx, _epinfosx) { \
@@ -198,7 +200,18 @@ static struct usb_epinfo bet_epinfos[] = {
 };
 
 static struct usb_intinfo bet_ints[] = {
-	USB_EPS(0, bet_epinfos)
+        USB_EPS(0, bet_epinfos)
+};
+#endif
+
+#ifdef USE_BITAXE
+static struct usb_epinfo baxg_epinfos[] = {
+        { LIBUSB_TRANSFER_TYPE_BULK,    64,     EPI(1), 0, 0 },
+        { LIBUSB_TRANSFER_TYPE_BULK,    64,     EPO(1), 0, 0 }
+};
+
+static struct usb_intinfo baxg_ints[] = {
+        USB_EPS(0, baxg_epinfos)
 };
 #endif
 
@@ -965,19 +978,31 @@ static struct usb_find_devices find_dev[] = {
 		INTINFO(ants3_ints) },
 #endif
 #ifdef USE_BLOCKERUPTER
-	{
-		.drv = DRIVER_blockerupter,
-		.name = "BET",
-		.ident = IDENT_BET,
-		.idVendor = 0x10c4,
-		.idProduct = 0xea60,
-		.config = 1,
-		.timeout = BLOCKERUPTER_TIMEOUT_MS,
-		.latency = LATENCY_UNUSED,
-		INTINFO(bet_ints) },
+        {
+                .drv = DRIVER_blockerupter,
+                .name = "BET",
+                .ident = IDENT_BET,
+                .idVendor = 0x10c4,
+                .idProduct = 0xea60,
+                .config = 1,
+                .timeout = BLOCKERUPTER_TIMEOUT_MS,
+                .latency = LATENCY_UNUSED,
+                INTINFO(bet_ints) },
 
 #endif
-	{ DRIVER_MAX, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL }
+#ifdef USE_BITAXE
+        {
+                .drv = DRIVER_bitaxe,
+                .name = "BAXG",
+                .ident = IDENT_BAXG,
+                .idVendor = 0x303a,
+                .idProduct = 0x1001,
+                .config = 1,
+                .timeout = BITAXE_TIMEOUT_MS,
+                .latency = LATENCY_UNUSED,
+                INTINFO(baxg_ints) },
+#endif
+        { DRIVER_MAX, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL }
 };
 
 #define STRBUFLEN 256
